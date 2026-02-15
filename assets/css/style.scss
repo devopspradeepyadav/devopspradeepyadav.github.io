@@ -15,8 +15,7 @@
   --card-bg-rgb: 255, 255, 255;
   
   /* Define the Light Theme Background Image */
-  --bg-image: url('/assets/images/light-bg.png');
-}
+  --bg-image: url('/assets/images/light-bg.png');}
 
 [data-theme="dark"] {
   --bg-color: #0f172a;
@@ -30,8 +29,7 @@
   --card-bg-rgb: 30, 41, 59;
   
   /* Define the Dark Theme Background Image */
-  --bg-image: url('/assets/images/dark-bg.png');
-}
+  --bg-image: url('/assets/images/dark-bg.png');}
 
 body {
   background-color: var(--bg-color);
@@ -644,4 +642,3 @@ a:hover { color: var(--primary-color); }
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
-@import "modules/post";
