@@ -1,6 +1,7 @@
 ---
 ---
-@import "{{ site.theme }}";
+
+
 
 /* --- 1. CONFIG & VARIABLES --- */
 
@@ -76,7 +77,7 @@ body {
   font-weight: 700; /* Make headers bold */
   font-size: 0.85rem; /* Slightly increase size */
 }
-}
+
 
 h1, h2, h3, .site-title, code { font-family: 'Fira Code', monospace; }
 a { color: var(--text-color); text-decoration: none; transition: color 0.2s; }
