@@ -1,19 +1,19 @@
 ---
 ---
-/* 1. CONFIG & VARIABLES */
-/* assets/css/style.scss */
+@import "{{ site.theme }}";
+
 /* --- 1. CONFIG & VARIABLES --- */
+
 :root {
-  --bg-color: #f8fafc; /* A slightly off-white for better contrast with the pattern */
+  --bg-color: #f8fafc;
   --text-color: #1e293b;
   --primary-color: #2563eb;
   --secondary-color: #64748b;
   --card-bg: #ffffff;
+  --card-bg-rgb: 255, 255, 255;
   --border-color: #e2e8f0;
   --hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --card-bg: #ffffff;
-  --card-bg-rgb: 255, 255, 255;
-  --bg-image: url('/assets/images/light-bg.png');
+  --bg-image: #{'url("/assets/images/light-bg.png")'};
 }
 
 [data-theme="dark"] {
@@ -22,40 +22,45 @@
   --primary-color: #38bdf8;
   --secondary-color: #94a3b8;
   --card-bg: #1e293b;
+  --card-bg-rgb: 30, 41, 59;
   --border-color: #334155;
   --hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-  --card-bg: #1e293b;
-  --card-bg-rgb: 30, 41, 59;
-  --bg-image: url('/assets/images/dark-bg.png');
+  --bg-image: #{'url("/assets/images/dark-bg.png")'};
 }
+
+/* --- 2. GLOBAL STYLES --- */
 
 body {
   background-color: var(--bg-color);
-  font-family: 'Rajdhani', sans-serif;
-  /* Use the variable we defined above */
   background-image: var(--bg-image);
-  /* Make the image cover the entire screen without repeating */
   background-size: cover;
   background-repeat: no-repeat;
-  /* Keep the background in place while scrolling */
   background-attachment: fixed;
   background-position: center;
-  
+
   color: var(--text-color);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   margin: 0;
   line-height: 1.6;
-  /* Add a smooth transition for the background change */
-  transition: background-image 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-  .forum-sidebar {
-  backdrop-filter: blur(12px); /* Creates the frosted glass effect */
-  -webkit-backdrop-filter: blur(12px); /* For Safari support */
-  background-color: rgba(var(--card-bg-rgb), 0.5); /* Semi-transparent background using our new RGB var */
-  padding: 25px; /* Add padding so text isn't on the edge */
-  border-radius: 16px; /* Rounded corners */
-  border: 1px solid var(--border-color); /* Subtle border for definition */
-  box-shadow: var(--hover-shadow); /* Slight shadow for depth */
+
+  transition: background-image 0.3s ease-in-out,
+              background-color 0.3s ease-in-out,
+              color 0.3s ease-in-out;
 }
+
+/* --- 3. COMPONENTS --- */
+
+.forum-sidebar {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  background-color: rgba(var(--card-bg-rgb), 0.5);
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--hover-shadow);
+}
+
 
 /* 3. BOLD THE FILTER TEXT */
 /* Find your existing .filter-btn rule and update font-weight */
