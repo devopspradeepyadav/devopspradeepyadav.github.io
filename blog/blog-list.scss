@@ -1,0 +1,48 @@
+/* --- BLOG ARCHIVE LIST STYLING --- */
+
+.post-list-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.forum-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rgba(var(--card-bg-rgb), 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+
+  &:hover {
+    background: rgba(var(--primary-color), 0.08);
+    border-color: var(--primary-color);
+    transform: translateX(10px); /* Subtle slide-out effect */
+    box-shadow: 0 0 20px rgba(var(--primary-color), 0.15);
+  }
+
+  .row-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-color);
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .row-desc {
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    margin: 0;
+  }
+
+  .row-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    min-width: 120px;
+  }
+}

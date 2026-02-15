@@ -1,0 +1,133 @@
+---
+layout: default
+title: "Pradeep Yadav | DevOps Engineer & Kubernetes Specialist"
+description: "Professional Engineering Logs of Pradeep Yadav, a DevOps Engineer specializing in Kubernetes (EKS/GKE), Terraform IaC, and DevSecOps. Expert guides on CI/CD automation and cloud infrastructure."
+keywords: "DevOps Engineer, Kubernetes Specialist, AWS EKS, Terraform, CI/CD, DevSecOps, Prometheus, Pradeep Yadav, Infrastructure as Code, GitOps, Delhi DevOps"
+---
+
+<div class="forum-layout">
+  
+  <aside class="forum-sidebar">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="search-input" placeholder="Search Blogs...">
+    </div>
+    <div class="filter-group">
+  <div class="filter-header">
+    <i class="fas fa-filter"></i> Filter Logs
+  </div>
+  
+  <button class="filter-btn active" onclick="filterPosts('all')">
+    <i class="fas fa-layer-group filter-icon"></i> All Topics
+  </button>
+
+  <h5>Infrastructure</h5>
+  <button class="filter-btn" onclick="filterPosts('aws')">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" class="filter-icon" alt="AWS"> AWS
+  </button>
+  <button class="filter-btn" onclick="filterPosts('azure')">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" class="filter-icon" alt="Azure"> Azure
+  </button>
+  <button class="filter-btn" onclick="filterPosts('linux')">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" class="filter-icon" alt="Linux"> Linux
+  </button>
+
+  <h5>Orchestration</h5>
+  <button class="filter-btn" onclick="filterPosts('kubernetes')">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" class="filter-icon" alt="K8s"> Kubernetes
+  </button>
+  <button class="filter-btn" onclick="filterPosts('docker')">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="filter-icon" alt="Docker"> Docker
+  </button>
+  <button class="filter-btn" onclick="filterPosts('helm')">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/helm/helm-original.svg" class="filter-icon" alt="Helm"> Helm
+  </button>
+
+  <h5>Automation</h5>
+  <button class="filter-btn" onclick="filterPosts('terraform')">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" class="filter-icon" alt="Terraform"> Terraform
+  </button>
+  <button class="filter-btn" onclick="filterPosts('ansible')">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" class="filter-icon" alt="Ansible"> Ansible
+  </button>
+  <button class="filter-btn" onclick="filterPosts('jenkins')">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" class="filter-icon" alt="Jenkins"> Jenkins
+  </button>
+  <button class="filter-btn" onclick="filterPosts('gitops')">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/argocd/argocd-original.svg" class="filter-icon" alt="ArgoCD"> GitOps
+  </button>
+
+  <h5>Ops & Security</h5>
+  <button class="filter-btn" onclick="filterPosts('prometheus')">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" class="filter-icon" alt="Prometheus"> Prometheus
+  </button>
+  <button class="filter-btn" onclick="filterPosts('devsecops')">
+    <i class="fas fa-shield-alt filter-icon" style="color: #e11d48;"></i> DevSecOps
+  </button>
+
+  <h5>Scripting</h5>
+  <button class="filter-btn" onclick="filterPosts('python')">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="filter-icon" alt="Python"> Python
+  </button>
+  <button class="filter-btn" onclick="filterPosts('go')">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg" class="filter-icon" alt="Go"> Golang
+  </button>
+</div>
+    
+  </aside>
+
+  <div class="forum-content">
+    <div id="results-container" class="post-list-compact">
+      {% for post in site.posts %}
+      <div class="forum-row" data-category="{{ post.categories | first | downcase }}">
+        <div class="row-main">
+          <a href="{{ post.url }}" class="row-title">{{ post.title }}</a>
+          <p class="row-desc">{{ post.description }}</p>
+        </div>
+        <div class="row-meta">
+          <span class="category-badge {{ post.categories | first | downcase }}">{{ post.categories | first }}</span>
+          <span class="row-date">{{ post.date | date: "%b %d" }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // 1. SEARCH LOGIC
+  const searchInput = document.getElementById('search-input');
+  const rows = document.querySelectorAll('.forum-row');
+
+  searchInput.addEventListener('keyup', (e) => {
+    const term = e.target.value.toLowerCase();
+    
+    rows.forEach(row => {
+      const title = row.querySelector('.row-title').innerText.toLowerCase();
+      const desc = row.querySelector('.row-desc').innerText.toLowerCase();
+      
+      if (title.includes(term) || desc.includes(term)) {
+        row.style.display = 'flex';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  });
+
+  // 2. CATEGORY FILTER LOGIC
+  function filterPosts(category) {
+    // Reset active button state
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+
+    rows.forEach(row => {
+      const postCat = row.getAttribute('data-category');
+      if (category === 'all' || postCat === category) {
+        row.style.display = 'flex';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+</script>

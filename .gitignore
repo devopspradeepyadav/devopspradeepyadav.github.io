@@ -1,0 +1,29 @@
+# --- Jekyll Specifics ---
+# This folder contains the built site; never commit it as it's auto-generated
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# --- Ruby & Dependencies ---
+# These are managed via 'bundle install'
+.bundle/
+vendor/
+Gemfile.lock
+
+# --- OS & IDE Specifics ---
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# --- DevOps & Infrastructure ---
+# If you start documenting Terraform, keep these out
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.env
+
+# --- Assets & Node ---
+# If you add Tailwind or other JS tools later
+node_modules/

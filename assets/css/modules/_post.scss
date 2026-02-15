@@ -1,0 +1,186 @@
+/* RESTORE & ENHANCE BLUR */
+.glass-panel {
+  background: rgba(var(--card-bg-rgb), 0.65); 
+  backdrop-filter: blur(25px) saturate(160%); /* Increased blur for visibility */
+  -webkit-backdrop-filter: blur(25px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 50px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden; /* Keeps the hero image edges clean */
+}
+
+/* HERO IMAGE POLISH */
+.post-hero {
+  margin: 30px 0;
+  width: 100%;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* SMART NAVIGATION STYLES */
+/* -----------------------------------------------------------
+   AMAZINGLY BEAUTIFUL NAVIGATION (FIT-TO-TEXT + GLOW)
+   ----------------------------------------------------------- */
+
+.post-navigation {
+  display: flex;
+  justify-content: space-between; /* Keeps Prev on left and Next on right */
+  align-items: center;
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(var(--border-color), 0.3);
+  gap: 20px;
+
+.nav-btn {
+    /* KEY CHANGE: Inline-flex makes the box fit the text width */
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 180px; 
+    max-width: 48%; 
+    padding: 15px 25px;
+    
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    
+    /* Base Glass Style */
+    background: rgba(var(--card-bg-rgb), 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--primary-color), 0.2);
+
+    /* Alignment for the "Next" box */
+    &.next {
+      text-align: right;
+      align-items: flex-end;
+      margin-left: auto; /* Pushes small box to the right */
+    }
+
+    /* Alignment for the "Previous" box */
+    &.prev {
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    .nav-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .nav-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-color);
+      line-height: 1.2;
+    }
+
+    /* --- THE NEON GLOW HOVER (Unified for Light/Dark) --- */
+    &:hover {
+      transform: translateY(-5px);
+      background: rgba(var(--card-bg-rgb), 0.8);
+      border-color: var(--primary-color);
+      
+      /* Glowing Effect */
+      box-shadow: 0 0 15px rgba(var(--primary-color), 0.4), 
+                  0 10px 20px rgba(0, 0, 0, 0.1);
+      
+      .nav-title {
+        color: var(--primary-color);
+      }
+    }
+
+    /* Subtle Dark Mode adjustment for deeper glow */
+    [data-theme="dark"] & {
+      &:hover {
+        box-shadow: 0 0 25px rgba(var(--primary-color), 0.5);
+      }
+    }
+  }
+
+  .nav-spacer {
+    display: none; /* No longer needed with margin-left: auto logic */
+  }
+}
+
+/* Mobile: Stack them but keep them fitting the text */
+@media (max-width: 600px) {
+  .post-navigation {
+    flex-direction: column;
+    align-items: stretch;
+    .nav-btn {
+      max-width: 100%;
+      &.next { text-align: left; align-items: flex-start; }
+    }
+  }
+}
+#Glow_Effect
+
+/* header container for title and badge */
+.post-title-row {
+  display: flex;
+  justify-content: space-between; /* This forces the title left and badge right */
+  align-items: center;            /* Aligns them vertically */
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+/* The styled badge (matching your dashboard) */
+.category-badge {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap; /* Prevents badge from wrapping */
+
+  /* The DevSecOps Red */
+  &.devsecops {
+    background-color: #e11d48; /* Exact red from your dashboard */
+    box-shadow: 0 0 15px rgba(225, 29, 72, 0.4); /* The "Outer Glow" effect */
+  }
+}
+.post-image-container {
+  margin: 40px 0;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    border-radius: 12px;
+    /* Adding the signature glowing border from your dashboard */
+    border: 1px solid rgba(var(--primary-color), 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 20px rgba(var(--primary-color), 0.3);
+    }
+  }
+
+  figcaption {
+    margin-top: 15px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}

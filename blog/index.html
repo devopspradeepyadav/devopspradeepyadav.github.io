@@ -1,0 +1,38 @@
+---
+layout: default
+title: Engineering Logs
+---
+
+<div class="post-container wrapper">
+  <div class="glass-panel" style="margin-top: 50px;">
+    
+    <header class="post-header" style="margin-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px;">
+      <h1 class="post-title" style="font-size: 2.5rem;">Archive: Technical Blogs</h1>
+      <p style="color: var(--secondary-color); font-family: 'Rajdhani', sans-serif; letter-spacing: 1px;">
+        A chronological deep-dive into DevSecOps, Kubernetes, and IaC.
+      </p>
+    </header>
+
+    <div id="results-container" class="post-list-compact">
+      {% for post in site.posts %}
+      <div class="forum-row" data-category="{{ post.categories | first | downcase }}">
+        <div class="row-main">
+          <a href="{{ post.url }}" class="row-title">{{ post.title }}</a>
+          <p class="row-desc">{{ post.description }}</p>
+        </div>
+        <div class="row-meta">
+          <span class="category-badge {{ post.categories | first | downcase }}">
+            {{ post.categories | first }}
+          </span>
+          <span class="row-date">{{ post.date | date: "%b %d, %Y" }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="pagination-footer" style="margin-top: 40px; text-align: center;">
+       <p class="row-date">Showing {{ site.posts | size }} engineering logs</p>
+    </div>
+
+  </div>
+</div>

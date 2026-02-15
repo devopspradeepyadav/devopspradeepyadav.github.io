@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<section class="hero-section">
+  <div class="hero-container">
+    <div class="hero-text">
+      <span class="hero-badge">🚀 System Status: Operational</span>
+      <h1 class="glitch-text">DevSecOps Engineer.</h1>
+      <p class="hero-subtitle">
+        Automating infrastructure, securing pipelines, and debugging <span class="highlight">Kubernetes</span> clusters.
+      </p>
+      <div class="hero-cta">
+        <a href="/blog/" class="btn btn-primary">Read the Logs</a>
+        <a href="https://github.com/yourusername" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+    </div>
+    
+    <div class="hero-image">
+       <img src="https://ui-avatars.com/api/?name=Pradeep+Yadav&background=2563eb&color=fff&size=200" alt="Pradeep Yadav" class="profile-pic">
+    </div>
+  </div>
+</section>
+
+<section class="latest-posts">
+  <div class="section-header">
+    <h3><i class="fas fa-terminal"></i> Recent Deployments</h3>
+    <a href="/blog/" class="view-all">View Archive &rarr;</a>
+  </div>
+
+  <div class="post-grid">
+    {% for post in site.posts limit:3 %}
+      <article class="post-card">
+        {% if post.image %}
+        <div class="card-image">
+          <a href="{{ post.url }}">
+            <img src="{{ post.image }}" alt="{{ post.title }}">
+          </a>
+        </div>
+        {% endif %}
+        <div class="card-content">
+          <span class="post-meta">{{ post.date | date: "%b %d, %Y" }} • {{ post.categories | first }}</span>
+          <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+          <p>{{ post.description | truncate: 80 }}</p>
+          <a href="{{ post.url }}" class="read-more">Read Log &rarr;</a>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
